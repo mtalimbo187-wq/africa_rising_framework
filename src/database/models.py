@@ -181,7 +181,7 @@ class Cost(Base):
 
     # Details
     description = Column(Text, nullable=True)
-    metadata = Column(JSON, nullable=True)
+    extra_data = Column(JSON, nullable=True)
 
     created_at = Column(DateTime, default=datetime.utcnow, index=True)
 

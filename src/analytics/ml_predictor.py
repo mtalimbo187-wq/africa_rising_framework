@@ -107,14 +107,15 @@ class EngagementPredictor:
 
         optimal_time = optimal_times.get(audience_timezone, "14:00")
 
+        hour = int(optimal_time.split(':')[0])
         return {
             "status": "success",
             "timezone": audience_timezone,
             "optimal_posting_time": optimal_time,
             "expected_engagement_boost": 0.32,
             "alternative_times": [
-                f"{int(t.split(':')[0])-2}:00",
-                f"{int(t.split(':')[0])+2}:00"
+                f"{max(0, hour-2):02d}:00",
+                f"{min(23, hour+2):02d}:00"
             ]
         }
 

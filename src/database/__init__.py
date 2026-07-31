@@ -1,6 +1,6 @@
 """Database layer for Documentary Studio"""
 
-from .connection import get_db, init_db
+from .connection import get_db, init_db, check_db_connection, cleanup_db
 from .models import (
     Production,
     Execution,
@@ -14,6 +14,8 @@ from .models import (
 __all__ = [
     "get_db",
     "init_db",
+    "check_db_connection",
+    "cleanup_db",
     "Production",
     "Execution",
     "QualityGate",

@@ -69,7 +69,7 @@ class CostOptimizer:
 
         # Use mock for low-priority services if budget is tight
         remaining = self.budget - self.spent
-        if remaining < self.budget * 0.1:  # Less than 10% budget left
+        if remaining <= self.budget * 0.1:  # 10% or less budget remaining
             if service in ["runway_ml", "elevenlabs"]:
                 logger.warning(f"Switching to mock for {service} to preserve budget")
                 return True

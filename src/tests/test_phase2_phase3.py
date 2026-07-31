@@ -104,22 +104,30 @@ class TestCircuitBreaker:
         assert str(cb.state.value) == "open"
 
     def test_circuit_breaker_half_open(self):
-        cb = CircuitBreaker(failure_threshold=1, recovery_timeout=1)
+        cb = CircuitBreaker(failure_threshold=2, recovery_timeout=1)
 
         def fail():
             raise Exception("test")
 
-        # Trigger open state
+        # Trigger open state (need 2 failures)
         with pytest.raises(Exception):
             cb.call(fail)
+        with pytest.raises(Exception):
+            cb.call(fail)
+
+        assert str(cb.state.value) == "open"
 
         # Wait for recovery timeout
         cb.last_failure_time = datetime.utcnow() - timedelta(seconds=2)
 
-        # Should enter half-open
-        with pytest.raises(Exception):
-            cb.call(fail)
-        assert str(cb.state.value) == "half_open"
+        # Should enter half-open and attempt
+        def succeed():
+            return "ok"
+
+        # When we call with a succeeding function while in recovery, it should succeed
+        result = cb.call(succeed)
+        assert result == "ok"
+        assert str(cb.state.value) == "closed"
 
 
 class TestAdvancedRetryManager:
@@ -135,7 +143,7 @@ class TestAdvancedRetryManager:
         assert result == "success"
 
     def test_retry_with_exponential_backoff(self):
-        retry_mgr = AdvancedRetryManager("Asset Finder")
+        retry_mgr = AdvancedRetryManager("Fact Checker")  # Has 3 max attempts
         attempts = [0]
 
         def flaky_call():
