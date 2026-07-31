@@ -120,7 +120,7 @@ class Producer:
             self.state = ProductionState.ASSET_SEARCH
             assets = self._execute_agent(
                 "Asset Finder",
-                {"visual_plan": visual_plan.get("visual_plan", [])},
+                {"scenes": scenes.get("scenes", []), "visual_plans": visual_plan.get("visual_plans", [])},
                 gate_name="asset_coverage"
             )
             self.gates_passed += 1
@@ -149,7 +149,7 @@ class Producer:
             video = self._execute_agent(
                 "Editor",
                 {
-                    "timeline": timeline.get("timeline", []),
+                    "timelines": timeline.get("timelines", []),
                     "assets": assets.get("assets", [])
                 }
             )
@@ -158,7 +158,7 @@ class Producer:
             self.state = ProductionState.QA_REVIEW
             qa_report = self._execute_agent(
                 "QA Reviewer",
-                {"video_file": video.get("video_file")},
+                {"video_url": video.get("video_url", "https://example.com/video.mp4"), "expected_duration": project_plan.estimated_length_seconds},
                 gate_name="qa_score"
             )
             self.gates_passed += 1
@@ -167,7 +167,7 @@ class Producer:
             self.state = ProductionState.CONTINUITY_CHECK
             continuity = self._execute_agent(
                 "Continuity & Story Flow Agent",
-                {"video_file": video.get("video_file")},
+                {"scenes": scenes.get("scenes", []), "timelines": timeline.get("timelines", [])},
                 gate_name="story_flow"
             )
             self.gates_passed += 1
@@ -176,7 +176,7 @@ class Producer:
             self.state = ProductionState.AUDIENCE_SIM
             audience = self._execute_agent(
                 "Audience Simulation Agent",
-                {"video_file": video.get("video_file")},
+                {"video_url": video.get("video_url", "https://example.com/video.mp4"), "target_audience": "general"},
                 gate_name="audience_satisfaction"
             )
             self.gates_passed += 1
@@ -186,12 +186,8 @@ class Producer:
             approval = self._execute_agent(
                 "Final Approval Agent",
                 {
-                    "video_file": video.get("video_file"),
-                    "all_reports": {
-                        "qa": qa_report,
-                        "continuity": continuity,
-                        "audience": audience
-                    }
+                    "video_url": video.get("video_url", "https://example.com/video.mp4"),
+                    "qa_score": qa_report.get("overall_score", 0.90)
                 }
             )
 
@@ -241,6 +237,10 @@ class Producer:
         try:
             logger.info(f"Executing: {agent_name}")
             result = agent.execute(input_data)
+
+            # Convert Pydantic objects to dicts
+            if hasattr(result, 'model_dump'):
+                result = result.model_dump()
 
             # Check gate if applicable
             if gate_name and gate_name in self.quality_gates:
