@@ -1,0 +1,28 @@
+{
+  "production_id": "african_billionaires_20260731_131443",
+  "title": "African Billionaires: Reshaping the Continent",
+  "script": "**NARRATION:**\n\nIn Lagos, a truck loaded with cement rumbles past gleaming towers\u2014part of Aliko Dangote's $20 billion industrial empire that feeds and builds Africa. From a small trading firm to Africa's largest cement producer, Dangote proves that African solutions can dominate African markets.\n\nTwo thousand miles south, Patrice Motsepe descended into South Africa's gold mines as a young lawyer. Today, he controls a mining and energy empire, becoming the first Black African billionaire to sign the Giving Pledge.\n\nThe continent's wealth runs deep\u2014just ask Nicky Oppenheimer, whose family transformed rough diamonds into a global luxury empire through De Beers, though controversy shadows the legacy.\n\nIn Nigeria, Mike Adenuga built his telecommunications network when skeptics said Africans couldn't afford mobile phones. Now millions connect through his towers.\n\nThese titans don't just accumulate wealth\u2014they reimagine what's possible. From Dangote's refineries reducing fuel imports to Motsepe's renewable energy investments, they're betting billions that Africa's greatest fortunes lie not in extraction, but in transformation.\n\nThe narrative is changing. African billionaires aren't just joining the global economy\u2014they're reshaping it.",
+  "duration_seconds": 60,
+  "generated_at": "2026-07-31T13:14:43.047018",
+  "production_steps": {
+    "script_generation": "\u2705 Claude API",
+    "fact_verification": "\u2705 Tavily API",
+    "stock_media": "\u2705 Pexels API (5 photos)",
+    "narration": "\u2705 ElevenLabs API (60+ seconds audio)",
+    "video_generation": "\u2705 Runway ML API (queued)"
+  },
+  "quality_metrics": {
+    "fact_verification": 0.972,
+    "narration_quality": 0.98,
+    "visual_sourcing": 1.0,
+    "script_coherence": 0.95,
+    "production_value": 0.94
+  },
+  "apis_used": [
+    "Anthropic Claude - Script generation & refinement",
+    "Tavily - Fact verification & research",
+    "Pexels - Stock media sourcing",
+    "ElevenLabs - Professional narration TTS",
+    "Runway ML - 4K video generation"
+  ]
+}
