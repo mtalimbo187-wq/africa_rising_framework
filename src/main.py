@@ -10,6 +10,7 @@ from datetime import datetime
 
 from .core.schemas import ProjectPlan
 from .producer import Producer
+from .dashboard import ProducerDashboard
 from .agents import (
     ResearchAgent,
     FactCheckAgent,
@@ -37,8 +38,54 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def create_test_project() -> ProjectPlan:
+def create_test_project(full_length: bool = False) -> ProjectPlan:
     """Create test project plan"""
+    if full_length:
+        # Full-length documentary script
+        topic = """
+        The Dangote Refinery represents a transformative chapter in Africa's industrial development. Located in Lagos, Nigeria,
+        this state-of-the-art facility processes 650,000 barrels per day, making it one of the world's largest refineries.
+
+        Billionaire Aliko Dangote invested $20 billion in this infrastructure, demonstrating unprecedented confidence in Nigeria's
+        industrial potential. The refinery's capacity to process crude oil into refined petroleum products addresses a critical gap
+        in Africa's energy independence.
+
+        The facility employs advanced manufacturing techniques and represents the cutting edge of petrochemical technology.
+        With its modern production capabilities, the Dangote Refinery reduces Nigeria's dependence on imported refined products,
+        strengthening the nation's economic sovereignty.
+
+        This achievement showcases African entrepreneurship and industrial excellence. The refinery's success has inspired
+        similar investments across the continent, catalyzing a new wave of industrial development. It stands as a monument to
+        the possibilities when vision meets capital and execution.
+
+        From construction to operation, the Dangote Refinery has created thousands of jobs and strengthened Nigeria's position
+        as an industrial powerhouse. Its strategic location in Lagos, Africa's commercial hub, positions it as a gateway for
+        refined products throughout the continent and beyond.
+        """
+        return ProjectPlan(
+            project_name="Dangote Refinery: Africa's Industrial Renaissance",
+            topic=topic,
+            estimated_length_seconds=900,  # 15 minutes
+            scene_count=5,
+            estimated_budget=2500.00,
+            required_agents=[
+                "Research Agent", "Fact Checker", "Script Analyzer",
+                "Visual Alignment Agent", "Visual Planner", "Asset Finder",
+                "AI Generator", "Timeline Builder", "Editor",
+                "QA Reviewer", "Continuity & Story Flow Agent",
+                "Audience Simulation Agent", "Re-Edit Agent", "Final Approval Agent",
+            ],
+            quality_thresholds={
+                "fact_verification": 0.95,
+                "visual_teaching": 0.90,
+                "asset_coverage": 0.90,
+                "qa_score": 0.90,
+                "story_flow": 0.92,
+                "audience_satisfaction": 0.92,
+            }
+        )
+
+    # Short test project
     return ProjectPlan(
         project_name="Dangote Refinery Documentary",
         topic="The Dangote Refinery in Lagos, Nigeria processes 650,000 barrels per day. This represents Africa's economic independence through industrial infrastructure. Aliko Dangote built this facility as a $20 billion investment. The refinery demonstrates Nigeria's capacity for advanced manufacturing and petroleum processing.",
@@ -130,6 +177,15 @@ def main():
     logger.info("PRODUCTION REPORT")
     logger.info("=" * 70)
     logger.info(json.dumps(report, indent=2, default=str))
+
+    # Generate and save dashboard
+    logger.info("=" * 70)
+    logger.info("GENERATING DASHBOARD")
+    logger.info("=" * 70)
+    dashboard = ProducerDashboard(producer)
+    dashboard_path = dashboard.save_html_dashboard("dashboard.html")
+    logger.info(f"Dashboard saved: {dashboard_path}")
+    logger.info("Dashboard available at: file://" + dashboard_path)
 
     return result
 
