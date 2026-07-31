@@ -10,14 +10,20 @@ Verifies that:
 """
 
 import pytest
-from ..agents import ResearchAgent, FactCheckAgent, ScriptAnalyzerAgent
-from ..core.errors import (
+import sys
+from pathlib import Path
+
+# Add src to path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from src.agents import ResearchAgent, FactCheckAgent, ScriptAnalyzerAgent
+from src.core.errors import (
     InvalidInputSchemaError,
     UnsupportedClaimError,
     DocumentaryError,
     ErrorCode,
 )
-from ..core.schemas import Fact
+from src.core.schemas import Fact
 
 
 class TestResearchAgent:
