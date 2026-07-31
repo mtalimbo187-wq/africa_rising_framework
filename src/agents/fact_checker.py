@@ -57,7 +57,7 @@ class FactCheckAgent(BaseAgent):
             verified = VerifiedFact(
                 fact_id=fact_dict.get("fact_id", ""),
                 claim=claim,
-                status="VERIFIED" if confidence >= 0.95 else "NEEDS_REVIEW",
+                status="VERIFIED" if confidence >= 0.95 else "PARTIAL",
                 confidence=confidence,
                 source="Research Database",
                 source_url="https://example.com/source",
@@ -76,4 +76,4 @@ class FactCheckAgent(BaseAgent):
             verified_facts=verified_facts,
             unverified=[],
             confidence_average=avg_confidence,
-        ).dict()
+        ).model_dump()

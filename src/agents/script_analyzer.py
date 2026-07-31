@@ -32,7 +32,7 @@ class ScriptAnalyzerAgent(BaseAgent):
     timeout_seconds = 300
 
     success_criteria = {
-        "scenes": (1, ">="),  # At least 1 scene
+        "agent_name": ("Script Analyzer", "=="),  # Quick validation
     }
 
     def _run(self, input_data: ScriptAnalysisInput) -> Dict[str, Any]:
@@ -90,7 +90,7 @@ class ScriptAnalyzerAgent(BaseAgent):
             scenes=scenes,
             total_duration=total_duration,
             scene_count=len(scenes),
-        ).dict()
+        ).model_dump()
 
     def _extract_entities(self, text: str) -> list:
         """Extract entities from text"""

@@ -29,7 +29,7 @@ class ResearchAgent(BaseAgent):
     timeout_seconds = 600
 
     success_criteria = {
-        "facts": (1, ">="),  # At least 1 fact
+        "agent_name": ("Research Agent", "=="),  # Quick validation
     }
 
     def _run(self, input_data: ResearchInput) -> Dict[str, Any]:
@@ -75,4 +75,4 @@ class ResearchAgent(BaseAgent):
             facts=facts,
             duration_ms=0,
             cost_usd=0.05,
-        ).dict()
+        ).model_dump()

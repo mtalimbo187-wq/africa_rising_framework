@@ -37,9 +37,13 @@ class TestResearchAgent:
         }
         output = agent.execute(input_data)
 
-        assert output["status"] == "PASS"
-        assert len(output["facts"]) > 0
-        assert output["agent_name"] == "Research Agent"
+        # Convert to dict if Pydantic object
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert len(output.get("facts", [])) > 0
+        assert output.get("agent_name") == "Research Agent"
 
     def test_research_agent_invalid_input(self):
         """Test invalid input rejection"""
@@ -62,6 +66,10 @@ class TestResearchAgent:
         agent = ResearchAgent()
         input_data = {"script": "Test script"}
         output = agent.execute(input_data)
+
+        # Convert to dict if Pydantic object
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
 
         # Verify output schema
         assert "facts" in output
@@ -94,9 +102,13 @@ class TestFactCheckAgent:
         }
         output = agent.execute(input_data)
 
-        assert output["status"] == "PASS"
-        assert len(output["verified_facts"]) > 0
-        assert output["confidence_average"] >= 0.95
+        # Convert to dict if Pydantic object
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert len(output.get("verified_facts", [])) > 0
+        assert output.get("confidence_average", 0) >= 0.95
 
     def test_fact_check_gate_enforcement(self):
         """Test that confidence gate is enforced"""
@@ -127,7 +139,7 @@ class TestFactCheckAgent:
             "facts": [
                 {
                     "fact_id": "f1",
-                    "claim": "Nigeria has oil",
+                    "claim": "The Dangote Refinery processes 650,000 barrels per day",
                     "entities": [],
                     "people": [],
                     "places": [],
@@ -139,6 +151,10 @@ class TestFactCheckAgent:
             ]
         }
         output = agent.execute(input_data)
+
+        # Convert to dict if Pydantic object
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
 
         # Verify output schema
         assert "verified_facts" in output
@@ -157,10 +173,14 @@ class TestScriptAnalyzerAgent:
         }
         output = agent.execute(input_data)
 
-        assert output["status"] == "PASS"
-        assert len(output["scenes"]) > 0
-        assert output["scene_count"] > 0
-        assert output["total_duration"] > 0
+        # Convert to dict if Pydantic object
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert len(output.get("scenes", [])) > 0
+        assert output.get("scene_count", 0) > 0
+        assert output.get("total_duration", 0) > 0
 
     def test_script_analyzer_scene_structure(self):
         """Test scene structure"""
@@ -170,7 +190,11 @@ class TestScriptAnalyzerAgent:
         }
         output = agent.execute(input_data)
 
-        assert len(output["scenes"]) > 0
+        # Convert to dict if Pydantic object
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert len(output.get("scenes", [])) > 0
         scene = output["scenes"][0]
 
         assert "scene_id" in scene
@@ -188,11 +212,15 @@ class TestScriptAnalyzerAgent:
         }
         output = agent.execute(input_data)
 
-        assert len(output["scenes"]) > 0
+        # Convert to dict if Pydantic object
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert len(output.get("scenes", [])) > 0
         scene = output["scenes"][0]
 
-        assert "Dangote" in str(scene["entities"])
-        assert "Lagos" in str(scene["location"]) or "Lagos" in str(scene["entities"])
+        assert "Dangote" in str(scene.get("entities", []))
+        assert "Lagos" in str(scene.get("location", "")) or "Lagos" in str(scene.get("entities", []))
 
     def test_script_analyzer_invalid_input(self):
         """Test invalid input rejection"""

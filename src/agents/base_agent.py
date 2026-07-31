@@ -111,26 +111,37 @@ class BaseAgent(ABC):
 
         # Convert dict to schema
         try:
-            return self.output_schema(**output_data)
+            validated = self.output_schema(**output_data)
+            return validated
         except ValidationError as e:
             raise InvalidOutputSchemaError(self.agent_name, str(e))
 
     def _check_success_criteria(self, output: BaseModel):
         """Check if output meets success criteria"""
-        for metric, (threshold, error_code) in self.success_criteria.items():
+        for metric, criteria in self.success_criteria.items():
             if not hasattr(output, metric):
                 raise MissingRequiredFieldError(self.agent_name, metric)
 
             value = getattr(output, metric)
 
-            # Check threshold
-            if isinstance(threshold, (int, float)):
-                if value < threshold:
-                    raise ThresholdNotMetError(metric, value, threshold)
-            elif isinstance(threshold, str):
-                # String comparison (e.g., status == "PASS")
-                if value != threshold:
-                    raise ThresholdNotMetError(metric, value, threshold)
+            # Handle tuple format: (threshold, operator)
+            if isinstance(criteria, tuple):
+                threshold, operator = criteria
+
+                # Check threshold
+                if isinstance(threshold, (int, float)):
+                    if operator == ">=" and value < threshold:
+                        raise ThresholdNotMetError(metric, value, threshold)
+                    elif operator == "<=" and value > threshold:
+                        raise ThresholdNotMetError(metric, value, threshold)
+                    elif operator == ">" and value <= threshold:
+                        raise ThresholdNotMetError(metric, value, threshold)
+                    elif operator == "<" and value >= threshold:
+                        raise ThresholdNotMetError(metric, value, threshold)
+                elif isinstance(threshold, str):
+                    # String comparison (e.g., status == "PASS")
+                    if value != threshold:
+                        raise ThresholdNotMetError(metric, value, threshold)
 
     @abstractmethod
     def _run(self, input_data: BaseModel) -> Any:
@@ -155,7 +166,12 @@ class BaseAgent(ABC):
         }
 
         if output:
-            log_entry["output"] = output.dict() if isinstance(output, BaseModel) else output
+            if isinstance(output, BaseModel):
+                log_entry["output"] = output.model_dump()
+            elif isinstance(output, dict):
+                log_entry["output"] = output
+            else:
+                log_entry["output"] = str(output)
 
         if error:
             log_entry["error"] = str(error)
