@@ -309,3 +309,310 @@ class TestRetryLogic:
 
         error = UnsupportedClaimError("Test", 0.80)
         assert not manager.should_retry(error)
+
+
+# ============================================================================
+# TESTS FOR NEW AGENTS (Visual, Production, Quality, Export Layers)
+# ============================================================================
+
+class TestVisualAlignmentAgent:
+    """Test Visual Alignment Agent"""
+
+    def test_visual_alignment_success(self):
+        """Test successful visual alignment"""
+        from src.agents import VisualAlignmentAgent
+
+        agent = VisualAlignmentAgent()
+        scenes = [
+            {
+                "scene_id": "s1",
+                "start_time": 0,
+                "end_time": 10,
+                "narration": "The Dangote Refinery is a world-class facility",
+                "emotion": "triumph",
+                "importance": "CRITICAL",
+                "visual_requirements": ["facility_footage"],
+            }
+        ]
+        input_data = {"scenes": scenes}
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert len(output.get("aligned_scenes", [])) > 0
+        assert output.get("overall_teaching_score", 0) >= 90.0
+
+
+class TestVisualPlannerAgent:
+    """Test Visual Planner Agent"""
+
+    def test_visual_planner_success(self):
+        """Test successful visual planning"""
+        from src.agents import VisualPlannerAgent
+
+        agent = VisualPlannerAgent()
+        scenes = [
+            {
+                "scene_id": "s1",
+                "narration": "The refinery facility in Nigeria",
+                "emotion": "triumph",
+                "importance": "CRITICAL",
+                "visual_requirements": ["facility_footage"],
+            }
+        ]
+        input_data = {"scenes": scenes}
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert len(output.get("visual_plans", [])) > 0
+
+
+class TestAIGeneratorAgent:
+    """Test AI Generator Agent"""
+
+    def test_ai_generator_success(self):
+        """Test successful AI generation"""
+        from src.agents import AIGeneratorAgent
+
+        agent = AIGeneratorAgent()
+        scenes = [
+            {
+                "scene_id": "s1",
+                "visual_requirements": ["facility_footage", "map_required"],
+            }
+        ]
+        input_data = {"scenes": scenes}
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert len(output.get("generated_visuals", [])) > 0
+
+
+class TestEditorAgent:
+    """Test Editor Agent"""
+
+    def test_editor_success(self):
+        """Test successful editing"""
+        from src.agents import EditorAgent
+
+        agent = EditorAgent()
+        timelines = [
+            {
+                "scene_id": "s1",
+                "timeline_start": 0,
+                "timeline_end": 10,
+            }
+        ]
+        input_data = {"timelines": timelines}
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert output.get("editing_complete") is True
+        assert output.get("video_url") is not None
+
+
+class TestReEditAgent:
+    """Test Re-Edit Agent"""
+
+    def test_re_edit_success(self):
+        """Test successful re-editing"""
+        from src.agents import ReEditAgent
+
+        agent = ReEditAgent()
+        input_data = {
+            "video_url": "https://example.com/video.mp4",
+            "qa_issues": ["Audio sync"],
+        }
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert len(output.get("changes_made", [])) > 0
+
+
+class TestAssetFinderAgent:
+    """Test Asset Finder Agent"""
+
+    def test_asset_finder_success(self):
+        """Test successful asset finding"""
+        from src.agents import AssetFinderAgent
+
+        agent = AssetFinderAgent()
+        scenes = [
+            {
+                "scene_id": "s1",
+                "narration": "The refinery facility",
+                "visual_requirements": ["facility_footage", "map_required"],
+            }
+        ]
+        input_data = {"scenes": scenes}
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert len(output.get("assets", [])) > 0
+        assert output.get("coverage_percentage", 0) >= 0.90
+
+
+class TestTimelineBuilderAgent:
+    """Test Timeline Builder Agent"""
+
+    def test_timeline_builder_success(self):
+        """Test successful timeline building"""
+        from src.agents import TimelineBuilderAgent
+
+        agent = TimelineBuilderAgent()
+        scenes = [
+            {
+                "scene_id": "s1",
+                "start_time": 0,
+                "end_time": 10,
+                "narration": "Opening scene",
+                "emotion": "neutral",
+                "importance": "MAJOR",
+            }
+        ]
+        input_data = {"scenes": scenes}
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert len(output.get("timelines", [])) > 0
+        assert output.get("total_duration", 0) > 0
+
+
+class TestQAReviewerAgent:
+    """Test QA Reviewer Agent"""
+
+    def test_qa_reviewer_success(self):
+        """Test successful QA review"""
+        from src.agents import QAReviewerAgent
+
+        agent = QAReviewerAgent()
+        input_data = {
+            "video_url": "https://example.com/video.mp4",
+            "expected_duration": 120,
+        }
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert output.get("overall_score", 0) >= 90.0
+
+
+class TestContinuityAgent:
+    """Test Continuity Agent"""
+
+    def test_continuity_success(self):
+        """Test successful continuity check"""
+        from src.agents import ContinuityAgent
+
+        agent = ContinuityAgent()
+        scenes = [
+            {
+                "scene_id": "s1",
+                "narration": "Opening",
+                "emotion": "triumph",
+                "location": "Lagos",
+            },
+            {
+                "scene_id": "s2",
+                "narration": "Main content",
+                "emotion": "triumph",
+                "location": "Lagos",
+            },
+        ]
+        input_data = {"scenes": scenes}
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert output.get("overall_score", 0) >= 92.0
+
+
+class TestAudienceSimulatorAgent:
+    """Test Audience Simulator Agent"""
+
+    def test_audience_simulator_success(self):
+        """Test successful audience simulation"""
+        from src.agents import AudienceSimulatorAgent
+
+        agent = AudienceSimulatorAgent()
+        input_data = {
+            "video_url": "https://example.com/video.mp4",
+            "target_audience": "general",
+        }
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert output.get("overall_satisfaction", 0) >= 92.0
+
+
+class TestFinalApprovalAgent:
+    """Test Final Approval Agent"""
+
+    def test_final_approval_success(self):
+        """Test successful final approval"""
+        from src.agents import FinalApprovalAgent
+
+        agent = FinalApprovalAgent()
+        input_data = {
+            "video_url": "https://example.com/video.mp4",
+            "qa_score": 0.95,
+        }
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "APPROVED"
+        assert output.get("certification") is not None
+
+
+class TestNarrationAgent:
+    """Test Narration Agent"""
+
+    def test_narration_success(self):
+        """Test successful narration generation"""
+        from src.agents import NarrationAgent
+
+        agent = NarrationAgent()
+        scenes = [
+            {
+                "scene_id": "s1",
+                "narration": "The Dangote Refinery is a state-of-the-art facility.",
+            }
+        ]
+        input_data = {"scenes": scenes, "voice_talent": "professional_narrator"}
+        output = agent.execute(input_data)
+
+        if hasattr(output, 'model_dump'):
+            output = output.model_dump()
+
+        assert output.get("status") == "PASS"
+        assert len(output.get("narration_files", [])) > 0
+        assert output.get("total_duration", 0) > 0

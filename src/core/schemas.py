@@ -188,11 +188,24 @@ class VisualAssignment(BaseModel):
     purpose: str
 
 
+class VisualPlan(BaseModel):
+    """Visual plan for a scene"""
+    scene_id: str
+    hierarchy_priority: int = Field(ge=1, le=10)
+    composition_rules: List[str] = []
+    color_palette: List[str] = []
+    lighting_notes: str
+    shot_requirements: List[str] = []
+
+
 class VisualPlanOutput(BaseModel):
     """Visual Planner output"""
     agent_name: str = "Visual Planner"
     status: AgentStatus
-    visual_plan: List[VisualAssignment]
+    visual_plan: List[VisualAssignment] = []
+    visual_plans: List[VisualPlan] = []
+    total_plans: int = 0
+    hierarchy_complete: bool = False
 
 
 # ============================================================================
@@ -259,13 +272,27 @@ class Shot(BaseModel):
     caption_sync: float
 
 
+class Timeline(BaseModel):
+    """Timeline for a scene"""
+    scene_id: str
+    timeline_start: float
+    timeline_end: float
+    clips: List[Dict[str, Any]] = []
+    transitions: List[str] = []
+    audio_track: str = "narration"
+    music_track: str = "background"
+    sound_effects: List[str] = []
+
+
 class TimelineOutput(BaseModel):
     """Timeline Builder output"""
     agent_name: str = "Timeline Builder"
     status: AgentStatus
-    timeline: List[Shot]
+    timeline: List[Shot] = []
+    timelines: List[Timeline] = []
     total_duration: float
     sync_accuracy: float = Field(ge=0.0, le=1.0)
+    scene_count: int = 0
 
 
 # ============================================================================
