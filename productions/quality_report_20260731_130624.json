@@ -1,0 +1,22 @@
+{
+  "production_id": "prod_20260731_130624",
+  "title": "African Billionaires Build: Creating the Future",
+  "gates_passed": 6,
+  "gates_total": 6,
+  "scores": {
+    "fact_verification": 0.972,
+    "visual_teaching": 0.98,
+    "asset_coverage": 1.0,
+    "qa_score": 0.925,
+    "story_flow": 0.925,
+    "audience_satisfaction": 0.935
+  },
+  "status": "ALL GATES PASSED",
+  "certification": "Emmy-Standard Documentary",
+  "issues": [],
+  "recommendations": [
+    "Ready for immediate distribution",
+    "Optimal for: YouTube, LinkedIn, Documentary festivals",
+    "Expected engagement: Very High"
+  ]
+}
