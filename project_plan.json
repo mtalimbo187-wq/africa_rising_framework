@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "project_name": "Dangote Refinery: Africa's Energy Independence",
+    "pillar": "African Builders (B)",
+    "target_channel": "Africa Rising YouTube",
+    "producer_assignment": "Producer Agent",
+    "created": "2026-07-30T21:55:00Z",
+    "status": "PLANNING"
+  },
+  "scope": {
+    "topic": "Dangote Refinery — Economic independence through African-owned industrial infrastructure",
+    "estimated_length_seconds": 510,
+    "estimated_length_formatted": "8:30",
+    "scene_count": 8,
+    "total_shots_estimated": 38,
+    "target_platform": "YouTube",
+    "target_audience": "Africa Rising subscribers, global economics/policy audience"
+  },
+  "production_timeline": {
+    "phase_1_research_and_verification": {
+      "agent": "Research Agent + Fact Verification Agent",
+      "duration_days": 1,
+      "deliverable": "Verified facts JSON with sources ≥95% confidence"
+    },
+    "phase_2_script_analysis": {
+      "agent": "Script Analyzer Agent",
+      "duration_days": 1,
+      "deliverable": "Scene breakdown JSON (8 sections, 38 shots)"
+    },
+    "phase_3_visual_planning": {
+      "agent": "Visual Planner Agent",
+      "duration_days": 1,
+      "deliverable": "Visual requirements per scene"
+    },
+    "phase_4_asset_retrieval": {
+      "agent": "Asset Retrieval Agent",
+      "duration_days": 5,
+      "critical_gate": "Must achieve ≥90% visual coverage or STOP"
+    },
+    "phase_5_ai_generation": {
+      "agent": "AI Generation Agent",
+      "duration_days": 2,
+      "constraint": "Only if authentic coverage <90%"
+    },
+    "phase_6_timeline_building": {
+      "agent": "Timeline Builder Agent",
+      "duration_days": 2,
+      "deliverable": "Synchronized timeline with captions"
+    },
+    "phase_7_editing": {
+      "agent": "Editor Agent",
+      "duration_days": 2,
+      "deliverable": "Assembled video with color grade"
+    },
+    "phase_8_quality_review": {
+      "agent": "Quality Assurance Agent",
+      "duration_days": 1,
+      "critical_gate": "Must pass all thresholds or REJECT"
+    },
+    "total_estimated_days": 15
+  },
+  "required_agents": [
+    "producer",
+    "research_agent",
+    "fact_verification_agent",
+    "script_analyzer",
+    "visual_planner",
+    "asset_retrieval_agent",
+    "ai_generation_agent",
+    "timeline_builder",
+    "editor",
+    "quality_assurance"
+  ],
+  "asset_requirements": {
+    "archival_footage": [
+      "1980s refinery operational (5-10 min)",
+      "abandoned refinery (5-10 min)",
+      "opening day May 2023 (5-10 min)"
+    ],
+    "drone_footage": [
+      "Dangote Refinery aerial sunset (60s)",
+      "Dangote Refinery aerial night (30s)",
+      "Operational facility (60s)"
+    ],
+    "interviews": [
+      "Engineer Chioma (15-30s)",
+      "Dangote portrait (5-10s)"
+    ],
+    "stock_footage": [
+      "Lagos port with ships (20-30s)",
+      "Construction cranes (30-45s)",
+      "Workers training (30-45s)",
+      "Gas station queues (10-20s)",
+      "Government buildings (10-15s)"
+    ],
+    "animations": [
+      "Nigeria crude flow (5-8s)",
+      "Production charts (5s each)",
+      "Timeline 2006-2023 (5s)",
+      "Price comparison (5s)",
+      "GDP pie chart (5s)"
+    ]
+  },
+  "quality_thresholds": {
+    "visual_relevance": 90,
+    "narration_sync": 95,
+    "editing_quality": 90,
+    "historical_accuracy": 95,
+    "overall_score": 90,
+    "visual_coverage_minimum": 90
+  },
+  "critical_failure_conditions": [
+    "Visual coverage <90%",
+    "Any claim <95% confidence",
+    "Any quality metric below threshold",
+    "Overall score <90"
+  ]
+}
