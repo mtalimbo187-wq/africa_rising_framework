@@ -193,6 +193,7 @@ class ProductionLogger:
         }
 
         # Parse production log
+        agent_costs_total = 0.0
         if self.production_log.exists():
             agents_data = {}
             with open(self.production_log) as f:
@@ -216,6 +217,7 @@ class ProductionLogger:
                         agents_data[agent]["failed_actions"] += 1
                     agents_data[agent]["total_duration_ms"] += action["duration_ms"]
                     agents_data[agent]["total_cost_usd"] += action["cost_usd"]
+                    agent_costs_total += action["cost_usd"]
 
             telemetry["agents"] = agents_data
             telemetry["total_agents"] = len(agents_data)
@@ -248,9 +250,10 @@ class ProductionLogger:
             telemetry["api_calls_total"] = sum(
                 p["call_count"] for p in api_by_provider.values()
             )
-            telemetry["total_cost_usd"] = sum(
-                p["total_cost_usd"] for p in api_by_provider.values()
-            )
+            api_costs = sum(p["total_cost_usd"] for p in api_by_provider.values())
+            telemetry["total_cost_usd"] = api_costs + agent_costs_total
+        else:
+            telemetry["total_cost_usd"] = agent_costs_total
 
         # Parse cost log
         if self.cost_log.exists():

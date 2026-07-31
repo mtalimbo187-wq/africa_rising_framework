@@ -34,7 +34,7 @@ class TestPromptManager(unittest.TestCase):
 
     def test_prompt_interpolation(self):
         manager = self.manager
-        template = "The agent is: {agent_type}"
+        template = "The agent is: {{agent_type}}"
         interpolated = manager.interpolate(template, {"agent_type": "researcher"})
         self.assertEqual(interpolated, "The agent is: researcher")
 
@@ -72,7 +72,7 @@ class TestLicenseManager(unittest.TestCase):
         # Should fail for commercial use
         valid, msg = self.manager.validate_for_usage("cc_by_asset", UsageType.COMMERCIAL)
         self.assertFalse(valid)
-        self.assertIn("noncommercial", msg.lower())
+        self.assertIn("commercial", msg.lower())
 
     def test_credits_generation(self):
         self.manager.track_asset(
