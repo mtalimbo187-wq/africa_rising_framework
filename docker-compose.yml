@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # Main pipeline service
+  pipeline:
+    build: .
+    container_name: africa-rising-pipeline
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY}
+      - PEXELS_API_KEY=${PEXELS_API_KEY}
+      - TAVILY_API_KEY=${TAVILY_API_KEY}
+      - GROK_API_KEY=${GROK_API_KEY}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - RUNWAY_API_KEY=${RUNWAY_API_KEY}
+    volumes:
+      - ./output:/app/output
+      - ./cache:/app/cache
+      - ./scripts:/app/scripts
+      - ./config.yaml:/app/config.yaml
+    ports:
+      - "5000:5000"
+    # GPU support (uncomment if running on GPU machine)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    restart: on-failure:3
+
+  # Optional: Redis for job queue
+  redis:
+    image: redis:7-alpine
+    container_name: africa-rising-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: on-failure
+
+  # Optional: Postgres for persistent storage
+  postgres:
+    image: postgres:15-alpine
+    container_name: africa-rising-db
+    environment:
+      - POSTGRES_USER=pipeline
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-changeme}
+      - POSTGRES_DB=africa_rising
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: on-failure
+
+volumes:
+  redis-data:
+  postgres-data:
+
+networks:
+  default:
+    name: africa-rising-network
