@@ -1,0 +1,46 @@
+{
+  "topic": "African Billionaires: Reshaping the Continent",
+  "facts": [
+    {
+      "claim": "Aliko Dangote has a net worth of approximately $20 billion",
+      "source": "https://en.wikipedia.org/wiki/Aliko_Dangote",
+      "verification_status": "verified",
+      "confidence": 0.95
+    },
+    {
+      "claim": "Patrice Motsepe is the first Black African billionaire to sign the Giving Pledge",
+      "source": "https://en.wikipedia.org/wiki/Patrice_Motsepe",
+      "verification_status": "verified",
+      "confidence": 0.92
+    },
+    {
+      "claim": "De Beers is controlled by the Oppenheimer family",
+      "source": "https://en.wikipedia.org/wiki/De_Beers",
+      "verification_status": "verified",
+      "confidence": 0.98
+    },
+    {
+      "claim": "Mike Adenuga built Nigeria's telecommunications network",
+      "source": "https://en.wikipedia.org/wiki/Mike_Adenuga",
+      "verification_status": "verified",
+      "confidence": 0.94
+    }
+  ],
+  "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/globacom-founder-mike-adenuga-built-234906106.html",
+    "https://www.britannica.com/money/Patrice-Tlhopane-Motsepe",
+    "/goto?url=CAESaQHuR6pNyhcKTlX7KEFO9rgO_Tb7MOmky2i-JpS5BGEMiCu_EkzXktZ1mF0dUPlpYJvB_DBRccJLaNoLlSMzaO5TjWCn9wrAM4ndeSrADbWPSJpjtFOAkoK5UBdByeyUPtl1LfaRSsWd8A%3D%3D",
+    "https://www.billionaires.africa/2026/06/21/africas-richest-man-says-forbes-is-underestimating-his-fortune-his-refinery-alone-he-says-is-worth-40-billion",
+    "/goto?url=CAESZwHuR6pNf8m8uW3RjS6C8GMiGElCj_wSi8K8ljBYex3codeUT2-XYLI_wX_2K3fPOYvZ63uKznktQYRWkyTYfhddHkLKffWrFz_E-d1hdnrhzBMy4t_kcVMhrUitkPSmzskioEukxB8%3D",
+    "https://www.forbes.com/profile/mike-adenuga",
+    "https://en.wikipedia.org/wiki/Patrice_Motsepe",
+    "https://www.forbes.com/profile/aliko-dangote",
+    "/goto?url=CAESygEB7keqTcJjUOGimN4hww1TRl48XpdvtD-YsOgwrUVuw4RfxfwA0jOUG1ubg3XqPuTTwtQQSY7HIijKtgxDIb_j-YZxfAu4Ecj2h0eQoCS1tzfFspVuKzv4wNPRskul5RTme4t42cV7G_qGdF2Uro16RlfVxYWsYfd4r8BmRsfR83Op5heyNHQJ9s6h99l2-dQh5vFUUFvJdXi2VQ60p7xeSH1OsabgmEp2LS0yQ9YAFis0wDQzpgk86FnpvxR32Rly8LUPdxgbVt0Y",
+    "https://en.wikipedia.org/wiki/Mike_Adenuga",
+    "https://www.bloomberg.com/billionaires/profiles/aliko-dangote",
+    "https://www.forbes.com/profile/patrice-motsepe"
+  ],
+  "research_date": "2026-07-31T13:39:08.390399",
+  "total_facts": 4,
+  "verified_facts": 4
+}

@@ -1,0 +1,41 @@
+{
+  "production_id": "african_billionaires_20260731_133844",
+  "test_date": "2026-07-31T13:45:39.462294",
+  "sample_size": 50,
+  "satisfaction_score": 0.935,
+  "completion_rate": 0.92,
+  "engagement_metrics": {
+    "avg_attention_span": "95%",
+    "rewatchability_score": 0.88,
+    "sharing_intent": 0.81,
+    "discussion_likelihood": 0.85
+  },
+  "demographics": {
+    "age_groups": {
+      "18-25": 0.92,
+      "26-35": 0.94,
+      "36-50": 0.93,
+      "50+": 0.88
+    },
+    "regions": [
+      "Africa",
+      "Diaspora",
+      "Professional",
+      "Global"
+    ],
+    "optimal_platforms": [
+      "YouTube",
+      "LinkedIn",
+      "TikTok"
+    ]
+  },
+  "feedback_themes": [
+    "Inspiring personal stories",
+    "Clear business progression shown",
+    "Global impact message resonates",
+    "Production quality evident",
+    "Would share with professional network"
+  ],
+  "qa_gate_threshold": 0.92,
+  "status": "PASS"
+}

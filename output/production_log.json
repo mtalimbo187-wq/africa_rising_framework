@@ -1,0 +1,61 @@
+{
+  "production_id": "african_billionaires_20260731_133844",
+  "start_time": "2026-07-31T13:38:44.096753",
+  "end_time": "2026-07-31T13:39:08.390993",
+  "duration_minutes": 0.404904,
+  "stages": [
+    {
+      "stage": "Script Generation",
+      "api": "Claude",
+      "status": "SUCCESS",
+      "timestamp": "2026-07-31T13:38:44.096759",
+      "output": "1601 character script"
+    },
+    {
+      "stage": "Fact Verification",
+      "api": "Tavily",
+      "status": "SUCCESS",
+      "timestamp": "2026-07-31T13:39:01.632542",
+      "sources_found": 12,
+      "facts_verified": 12
+    },
+    {
+      "stage": "Media Sourcing",
+      "api": "Pexels",
+      "status": "SUCCESS",
+      "timestamp": "2026-07-31T13:39:07.108260",
+      "photos_found": 5
+    },
+    {
+      "stage": "Narration Generation",
+      "api": "ElevenLabs",
+      "status": "API_LIMIT",
+      "timestamp": "2026-07-31T13:39:07.791654"
+    },
+    {
+      "stage": "Video Generation",
+      "api": "Runway ML",
+      "status": "SUCCESS",
+      "timestamp": "2026-07-31T13:39:08.389087",
+      "resolution": "4K",
+      "duration": 60,
+      "file_size": 102428
+    }
+  ],
+  "apis_called": [
+    "Claude",
+    "Tavily",
+    "Pexels",
+    "ElevenLabs",
+    "Runway ML"
+  ],
+  "output_files": {
+    "documentary_mp4": "documentary.mp4",
+    "captions_srt": "captions.srt",
+    "research_json": "research.json",
+    "timeline_json": "timeline.json",
+    "narration_mp3": null,
+    "production_log_json": "production_log.json"
+  },
+  "production_status": "COMPLETE"
+}

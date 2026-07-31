@@ -1,0 +1,106 @@
+{
+  "duration_seconds": 60,
+  "scenes": [
+    {
+      "scene_number": 1,
+      "start_time": 0.0,
+      "end_time": 8.0,
+      "visual": "Wide establishing shot of Lagos skyline at sunrise, cement trucks moving through bustling industrial zone, cranes lifting materials, factory complex in background",
+      "visual_keywords": [
+        "industrial",
+        "Lagos",
+        "construction",
+        "scale",
+        "movement"
+      ],
+      "narration": "In Lagos, a truck loaded with cement rumbles past gleaming towers.",
+      "narration_emphasis": "industrial power, African scale",
+      "transition": "fade_in",
+      "teaching_element": "Establishes Dangote's industrial empire scale"
+    },
+    {
+      "scene_number": 2,
+      "start_time": 8.0,
+      "end_time": 18.0,
+      "visual": "Close-up of Dangote Refinery operations: oil processing towers, pipeline infrastructure, finished products being loaded, global shipping vessel docked, modern technology in use",
+      "visual_keywords": [
+        "refinery",
+        "infrastructure",
+        "energy",
+        "Africa feeds world",
+        "modern"
+      ],
+      "narration": "Aliko Dangote's $20 billion industrial empire feeds and builds Africa. From trading to cement production to refinery operations\u2014he proves African solutions dominate African markets.",
+      "narration_emphasis": "progression, self-made, continent-building",
+      "transition": "cut",
+      "teaching_element": "Shows concrete progression from trade to industrial empire"
+    },
+    {
+      "scene_number": 3,
+      "start_time": 18.0,
+      "end_time": 32.0,
+      "visual": "South African landscape transition: desert to mining operations, underground mine shaft with workers, gold extraction process, renewable energy panels glinting in sunlight, wind turbines on hills, solar farms",
+      "visual_keywords": [
+        "mining",
+        "South Africa",
+        "energy transition",
+        "renewable",
+        "scale"
+      ],
+      "narration": "Two thousand miles south, Patrice Motsepe began as a young lawyer descending into South Africa's gold mines. Today he controls a mining and energy empire. The first Black African billionaire to sign the Giving Pledge\u2014he's betting billions on renewable transformation, proving African wealth can fund African futures.",
+      "narration_emphasis": "personal journey, empire building, vision for future",
+      "transition": "dissolve",
+      "teaching_element": "Personal progression + vision for clean energy African future"
+    },
+    {
+      "scene_number": 4,
+      "start_time": 32.0,
+      "end_time": 45.0,
+      "visual": "Diamond mines in daylight: raw diamonds emerging, De Beers diamond polishing facilities, luxury diamond showrooms with brilliant stones, global trade networks shown as animated maps, Oppenheimer legacy imagery",
+      "visual_keywords": [
+        "diamonds",
+        "luxury",
+        "global",
+        "De Beers",
+        "wealth"
+      ],
+      "narration": "Nicky Oppenheimer's family transformed rough diamonds into a global luxury empire through De Beers. While controversy shadows the legacy, the reach is undeniable. Across Africa, across oceans, across generations.",
+      "narration_emphasis": "legacy, global reach, complexity",
+      "transition": "cut",
+      "teaching_element": "Global economic reach of African wealth"
+    },
+    {
+      "scene_number": 5,
+      "start_time": 45.0,
+      "end_time": 60.0,
+      "visual": "Montage showing: Nigeria telecom towers spreading across cities, people using mobile phones, global connectivity, African billionaires in boardrooms, construction sites, innovation hubs, young people using technology created by African wealth. Ending: Earth from space showing Africa's economic glow",
+      "visual_keywords": [
+        "connectivity",
+        "innovation",
+        "Africa rising",
+        "transformation",
+        "future"
+      ],
+      "narration": "Mike Adenuga built telecommunications networks when skeptics said Africans couldn't afford mobile phones. Now millions connect through African infrastructure. These titans don't just accumulate wealth\u2014they're reshaping global markets. From Dangote's refineries reducing imports to Motsepe's renewable bets to Adenuga's connectivity revolution. The narrative is changing. African billionaires aren't joining the global economy. They're reshaping it.",
+      "narration_emphasis": "transformation, impact, future power",
+      "transition": "fade_out",
+      "teaching_element": "African innovation driving global change, infrastructure creating opportunity"
+    }
+  ],
+  "narrative_continuity": {
+    "theme": "Transformation: from individual success to continental reshaping",
+    "progression": [
+      "Personal journey (Dangote)",
+      "Empire building with vision (Motsepe)",
+      "Global legacy (Oppenheimer)",
+      "Massive scale impact (Adenuga)",
+      "Conclusion: African leadership reshaping world"
+    ],
+    "connective_elements": [
+      "Each billionaire = different sector, same vision: transform Africa",
+      "Scale increasing throughout",
+      "Impact widening: local \u2192 continental \u2192 global",
+      "Future tense growing: not joining, reshaping"
+    ]
+  }
+}

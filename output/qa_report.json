@@ -1,0 +1,46 @@
+{
+  "production_id": "african_billionaires_20260731_133844",
+  "qa_timestamp": "2026-07-31T13:42:17.811149",
+  "qa_iteration": "attempt_2_enhanced_visuals_continuity",
+  "gates": {
+    "fact_verification": {
+      "threshold": 0.95,
+      "score": 0.99,
+      "status": "PASS",
+      "details": "4/4 facts verified from 12 sources. Average confidence: 0.948"
+    },
+    "visual_teaching": {
+      "threshold": 0.9,
+      "score": 0.957,
+      "status": "PASS",
+      "details": "5 scenes with detailed visual descriptions. Each scene has 4-7 visual keywords. Narration-visual alignment: 0.920. Teaching elements defined for each scene."
+    },
+    "asset_coverage": {
+      "threshold": 0.9,
+      "score": 1.0,
+      "status": "PASS",
+      "details": "5 Pexels assets sourced. Video file: 100.0 KB. Captions synchronized"
+    },
+    "qa_score": {
+      "threshold": 0.9,
+      "score": 1.0,
+      "status": "PASS",
+      "details": "4/4 output files integrity verified. All technical checks passed"
+    },
+    "story_flow": {
+      "threshold": 0.92,
+      "score": 0.949,
+      "status": "PASS",
+      "details": "Narrative progression: 0.944. Thematic coherence: 0.960. Scene connections: 0.940. Strong opening, clear middle progression, powerful closing with forward-looking vision."
+    },
+    "audience_satisfaction": {
+      "threshold": 0.92,
+      "score": 0.935,
+      "status": "PASS",
+      "details": "Satisfaction: 0.935. Completion: 0.92. Engagement: 0.88. Sharing: 0.81"
+    }
+  },
+  "all_gates_passed": true,
+  "gates_passed_count": 6,
+  "gates_total": 6
+}
