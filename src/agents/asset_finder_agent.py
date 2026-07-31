@@ -69,11 +69,12 @@ class AssetFinderAgent(BaseAgent):
         narration = scene.get("narration", "")
 
         if asset_type == "facility_footage":
+            location_str = (location or "lagos").lower() if location else "lagos"
             return Asset(
                 asset_id=f"a_{asset_type}_001",
                 visual_id=f"v_{asset_type}",
                 source="Dangote Archive",
-                url=f"https://assets.example.com/dangote_refinery_{location.lower()}",
+                url=f"https://assets.example.com/dangote_refinery_{location_str}",
                 resolution="4K",
                 quality_score=95.0,
                 license="commercial",
