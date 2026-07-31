@@ -1,0 +1,228 @@
+# Africa Rising Video Framework — Configuration
+
+project:
+  name: "Africa Rising Documentary Series"
+  channel: "Africa Rising"
+  website: "https://www.youtube.com/@AfricaRising-360"
+  description: "Investigative documentary series on labor, tech, and economic justice in Africa"
+
+video_settings:
+  resolution: "1280x720"
+  fps: 25
+  codec: "libx264"
+  audio_codec: "aac"
+  bitrate: "5000k"
+  output_format: "mp4"
+
+narration:
+  provider: "ElevenLabs"
+  api_key: "YOUR_ELEVENLABS_API_KEY"
+  voice: "George"
+  voice_id: "JBFqnCBsd6RMkjVDRZzb"
+  model: "eleven_turbo_v2_5"
+  language: "en"
+  cost_per_minute: 0.03
+
+  voices:
+    george:
+      voice_id: "JBFqnCBsd6RMkjVDRZzb"
+      style: "Documentary - Deep, authoritative"
+    bella:
+      voice_id: "EXAVITQu4vr4xnSDxMaL"
+      style: "Empathetic - Clear, engaging"
+    marcus:
+      voice_id: "EXAVITQu4vr4xnSDxMaL"
+      style: "Energetic - Dynamic male voice"
+
+asset_sources:
+  priority:
+    - pexels
+    - internet_archive
+    - unsplash
+    - pixabay
+
+  pexels:
+    enabled: true
+    api_key: "6mRphkqCxN8oBj28vU9lpdeMXgoS5EfsdTKKK9Ts0Dv14pT07cxAPjdq"
+    results_per_query: 5
+
+  internet_archive:
+    enabled: true
+    api_url: "https://archive.org/advancedsearch.php"
+    results_per_query: 5
+
+  unsplash:
+    enabled: true
+    # Add key if needed
+
+  pixabay:
+    enabled: true
+    # Add key if needed
+
+visual_generation:
+  # Phase 2: Professional video generation
+  veo:
+    enabled: true
+    provider: "Google Veo 2"
+    api_key: "YOUR_GOOGLE_API_KEY"
+    model: "google-veo-2"
+    quality: "professional"
+    duration: 6
+    cost_per_video: 0.15
+    description: "Cinematic video scenes - broadcast quality"
+
+  runway:
+    enabled: true
+    provider: "Runway ML"
+    api_key: "YOUR_RUNWAY_API_KEY"
+    model: "veo3.1_fast"
+    quality: "high"
+    duration: 5
+    cost_per_video: 0.10
+    description: "Fast, high-quality video generation"
+
+  # Existing providers
+  grok:
+    enabled: true
+    api_key: "xai-edxHqBNRmIYIoqJQ03Q7A4oiZEtJhO3G0RZKDKLL1HipEdaWWUhTI1A8TfPpEd2Wltg3HfVQPssNMGDz"
+    model: "grok-vision-beta"
+    image_count: 1
+    resolution: "1280x720"
+    cost_per_image: 0.05
+
+  dalle:
+    enabled: false
+    api_key: ""
+    model: "dall-e-3"
+    resolution: "1280x720"
+    quality: "hd"
+    cost_per_image: 0.20
+
+  local:
+    enabled: true
+    method: "PIL"
+    description: "Fallback to local PIL/Pillow for basic graphics"
+
+research:
+  # Phase 2: Tavily for fact-checking
+  tavily:
+    enabled: true
+    provider: "Tavily"
+    api_key: "YOUR_TAVILY_API_KEY"
+    max_results: 3
+    description: "Research and fact verification"
+
+maps:
+  # Phase 2: Google Earth Studio for cinematic maps
+  google_earth_studio:
+    enabled: true
+    provider: "Google Earth Studio"
+    api_key: "YOUR_GOOGLE_EARTH_STUDIO_KEY"
+    quality: "hd"
+    fps: 25
+    cost_per_animation: 0.50
+    description: "Cinematic map flyovers and animated geography"
+
+captions:
+  # Phase 2: Whisper for automatic captioning
+  whisper:
+    enabled: true
+    provider: "OpenAI Whisper"
+    model: "base"  # Options: tiny, base, small, medium, large
+    language: "en"
+    output_format: "srt"  # Options: srt, vtt, json
+    cost: 0  # Whisper is free (runs locally or via API)
+
+    model_info:
+      tiny:
+        size: "39M"
+        speed: "fastest"
+        accuracy: "low"
+      base:
+        size: "140M"
+        speed: "fast"
+        accuracy: "medium"
+      small:
+        size: "244M"
+        speed: "medium"
+        accuracy: "good"
+      medium:
+        size: "769M"
+        speed: "slow"
+        accuracy: "very_good"
+      large:
+        size: "1.5GB"
+        speed: "slowest"
+        accuracy: "excellent"
+
+    description: "Auto-generate SRT captions from narration audio"
+
+animations:
+  default_effect: "ken_burns"
+  duration: 3.0
+
+  effects:
+    ken_burns:
+      description: "Slow zoom/pan across still"
+      duration: 3.0
+
+    zoom_in:
+      description: "Zoom in from wide to close-up"
+      duration: 2.0
+
+    pan_left:
+      description: "Pan left across image"
+      duration: 2.5
+
+    pan_right:
+      description: "Pan right across image"
+      duration: 2.5
+
+transitions:
+  default: "cross_fade"
+  duration: 0.5
+
+  types:
+    fade: 0.5
+    cross_fade: 0.5
+    wipe_right: 0.7
+    wipe_left: 0.7
+    cut: 0.0
+
+color_grading:
+  profiles:
+    documentary: "Slight desaturation, warm undertones, increased contrast"
+    investigative: "High contrast, cool tones, dramatic"
+    empathetic: "Warm color grade, soft focus on people"
+    data_driven: "Sharp contrast, clean, statistics overlay"
+
+editing:
+  auto_sync_to_narration: true
+  default_clip_duration: 3.0
+  min_clip_duration: 1.0
+  max_clip_duration: 8.0
+  add_lower_thirds: true
+  add_statistics_overlays: true
+  add_chapter_breaks: true
+
+output:
+  directory: "/Users/rajab/africa_rising_framework/output"
+  naming_convention: "{project}_{date}_{version}.mp4"
+  auto_thumbnail: true
+  thumbnail_time: 3.0
+
+quality_checks:
+  verify_audio_sync: true
+  verify_resolution: true
+  verify_duration: true
+  verify_frame_rate: true
+
+metadata:
+  copyright: "© Africa Rising 2026"
+  license: "Creative Commons Attribution"
+  keywords:
+    - "labor"
+    - "technology"
+    - "Africa"
+    - "economic justice"
+    - "workers' rights"
