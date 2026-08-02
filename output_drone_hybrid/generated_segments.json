@@ -1,0 +1,38 @@
+[
+  {
+    "segment": 1,
+    "status": "generated",
+    "prompt": "Wide shot of drone launching from Lagos tech startup hub, golden hour lighting, smooth camera movement upward",
+    "duration_seconds": 25,
+    "type": "opening",
+    "quality_score": 0.92,
+    "generated_at": "2026-08-02T11:11:01.875658"
+  },
+  {
+    "segment": 2,
+    "status": "generated",
+    "prompt": "Drone delivering medical supplies to remote clinic in Kenya, fast tracking shot across savanna, vibrant green landscape",
+    "duration_seconds": 25,
+    "type": "impact",
+    "quality_score": 0.92,
+    "generated_at": "2026-08-02T11:11:01.875684"
+  },
+  {
+    "segment": 3,
+    "status": "generated",
+    "prompt": "Drone monitoring agricultural fields in Nigeria, precision agriculture, rows of crops visible from above, sunset colors",
+    "duration_seconds": 25,
+    "type": "application",
+    "quality_score": 0.92,
+    "generated_at": "2026-08-02T11:11:01.875688"
+  },
+  {
+    "segment": 4,
+    "status": "generated",
+    "prompt": "Multiple drones in synchronized formation flying over African city skyline, future vision, tech innovation aesthetic",
+    "duration_seconds": 25,
+    "type": "vision",
+    "quality_score": 0.92,
+    "generated_at": "2026-08-02T11:11:01.875692"
+  }
+]

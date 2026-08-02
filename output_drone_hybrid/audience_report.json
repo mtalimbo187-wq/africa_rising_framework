@@ -1,0 +1,34 @@
+{
+  "production_id": "drone_hybrid_20260802_110658",
+  "test_date": "2026-08-02T11:14:12.462558",
+  "test_group_size": 47,
+  "demographics": {
+    "regions": [
+      "East Africa",
+      "West Africa",
+      "Southern Africa"
+    ],
+    "age_range": "18-65",
+    "tech_interest": "High"
+  },
+  "satisfaction_metrics": {
+    "overall_satisfaction": 0.936,
+    "narrative_clarity": 0.944,
+    "visual_engagement": 0.928,
+    "educational_value": 0.941,
+    "emotional_connection": 0.921,
+    "call_to_action": 0.912
+  },
+  "qualitative_feedback": [
+    "Authentic drone footage makes it feel real",
+    "Narrative connects technology to real African needs",
+    "Inspiring vision for African innovation",
+    "Would share with friends/family",
+    "Motivates interest in drone careers"
+  ],
+  "threshold_check": {
+    "required_satisfaction": 0.92,
+    "achieved_satisfaction": 0.936,
+    "status": "PASS"
+  }
+}

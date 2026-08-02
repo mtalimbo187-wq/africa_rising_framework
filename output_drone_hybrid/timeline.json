@@ -1,0 +1,91 @@
+{
+  "production_id": "drone_hybrid_20260802_110658",
+  "total_duration": 300,
+  "scenes": [
+    {
+      "scene_id": "scene_01",
+      "start_time": 0,
+      "duration": 30,
+      "type": "archive",
+      "transition": "fade",
+      "visuals": {
+        "resolution": "4K (3840x2160)",
+        "frame_rate": "60fps",
+        "color_space": "rec709"
+      },
+      "narration": {
+        "text": "See narration_script.txt",
+        "voice": "ElevenLabs",
+        "duration": 29
+      }
+    },
+    {
+      "scene_id": "scene_02",
+      "start_time": 30,
+      "duration": 25,
+      "type": "generated",
+      "transition": "dissolve",
+      "visuals": {
+        "resolution": "4K (3840x2160)",
+        "frame_rate": "60fps",
+        "color_space": "rec709"
+      },
+      "narration": {
+        "text": "See narration_script.txt",
+        "voice": "ElevenLabs",
+        "duration": 24
+      }
+    },
+    {
+      "scene_id": "scene_03",
+      "start_time": 55,
+      "duration": 25,
+      "type": "generated",
+      "transition": "dissolve",
+      "visuals": {
+        "resolution": "4K (3840x2160)",
+        "frame_rate": "60fps",
+        "color_space": "rec709"
+      },
+      "narration": {
+        "text": "See narration_script.txt",
+        "voice": "ElevenLabs",
+        "duration": 24
+      }
+    },
+    {
+      "scene_id": "scene_04",
+      "start_time": 80,
+      "duration": 25,
+      "type": "generated",
+      "transition": "dissolve",
+      "visuals": {
+        "resolution": "4K (3840x2160)",
+        "frame_rate": "60fps",
+        "color_space": "rec709"
+      },
+      "narration": {
+        "text": "See narration_script.txt",
+        "voice": "ElevenLabs",
+        "duration": 24
+      }
+    },
+    {
+      "scene_id": "scene_05",
+      "start_time": 105,
+      "duration": 25,
+      "type": "generated",
+      "transition": "fade",
+      "visuals": {
+        "resolution": "4K (3840x2160)",
+        "frame_rate": "60fps",
+        "color_space": "rec709"
+      },
+      "narration": {
+        "text": "See narration_script.txt",
+        "voice": "ElevenLabs",
+        "duration": 24
+      }
+    }
+  ]
+}

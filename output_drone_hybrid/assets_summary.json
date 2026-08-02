@@ -1,0 +1,29 @@
+{
+  "production_id": "drone_hybrid_20260802_110658",
+  "type": "Hybrid (Archive-First)",
+  "archives": {
+    "used": 1,
+    "avg_quality": 0.95,
+    "platform": "Pexels Videos"
+  },
+  "generated": {
+    "count": 4,
+    "avg_quality": 0.92,
+    "platform": "Higgsfield (Seedance 2.0)"
+  },
+  "blending": {
+    "transitions": "fade/dissolve",
+    "color_grading": "cinematic",
+    "audio_sync": "frame-accurate"
+  },
+  "narration": {
+    "duration_seconds": 300,
+    "voice": "ElevenLabs (African accent)",
+    "language": "English (Swahili subtitles available)"
+  },
+  "files_ready": [
+    "archive_drone_main.mp4",
+    "generated_segments.json",
+    "narration_script.txt"
+  ]
+}

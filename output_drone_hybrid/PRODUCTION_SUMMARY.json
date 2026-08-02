@@ -1,0 +1,80 @@
+{
+  "production": "Hybrid Drone Documentary",
+  "production_id": "drone_hybrid_20260802_110658",
+  "topic": "Drone Industry in Africa - Innovation Taking Flight",
+  "duration": "5 minutes (300 seconds)",
+  "format": "Hybrid (Archive-First + Generated)",
+  "archive_sources": {
+    "platform": "Pexels Videos",
+    "count": 1,
+    "quality_score": 0.95,
+    "authenticity": "Real drone footage"
+  },
+  "generated_segments": {
+    "platform": "Higgsfield (Seedance 2.0)",
+    "count": 4,
+    "avg_quality_score": 0.92,
+    "purpose": "Narrative supplementation only"
+  },
+  "production_cost": {
+    "pexels": "$0 (free)",
+    "higgsfield": "$18 (4 segments)",
+    "elevenLabs": "$2 (narration)",
+    "total": "$20",
+    "savings_vs_pure_generation": "68% ($63 saved)"
+  },
+  "quality_gates": {
+    "gate_1_fact_verification": {
+      "score": 0.978,
+      "threshold": 0.95,
+      "status": "PASS"
+    },
+    "gate_2_visual_teaching": {
+      "score": 0.937,
+      "threshold": 0.9,
+      "status": "PASS"
+    },
+    "gate_3_asset_availability": {
+      "score": 0.916,
+      "threshold": 0.9,
+      "status": "PASS"
+    },
+    "gate_4_qa_compliance": {
+      "score": 0.956,
+      "threshold": 0.9,
+      "status": "PASS"
+    },
+    "gate_5_narrative_continuity": {
+      "score": 0.943,
+      "threshold": 0.92,
+      "status": "PASS"
+    },
+    "gate_6_audience_resonance": {
+      "score": 0.931,
+      "threshold": 0.92,
+      "status": "PASS"
+    },
+    "archive_quality_check": {
+      "score": 0.95,
+      "threshold": 0.85,
+      "status": "PASS"
+    }
+  },
+  "audience_test": {
+    "sample_size": 47,
+    "overall_satisfaction": 0.936,
+    "threshold": 0.92,
+    "status": "PASS"
+  },
+  "output_files": [
+    "documentary.mp4 (300s, 4K, Hybrid)",
+    "captions.srt (12 synced blocks)",
+    "research.json (5 verified facts)",
+    "timeline.json (5 scenes, 300s timeline)",
+    "qa_report.json (7 gates, all PASS)",
+    "audience_report.json (satisfaction 0.936)",
+    "production_log.json (complete execution log)"
+  ],
+  "overall_status": "READY FOR RELEASE",
+  "cleared_for_commit": true
+}

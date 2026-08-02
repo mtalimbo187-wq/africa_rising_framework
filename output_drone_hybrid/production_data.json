@@ -1,0 +1,59 @@
+{
+  "production_id": "drone_hybrid_20260802_110658",
+  "topic": "Drone Industry in Africa - Hybrid",
+  "duration_seconds": 300,
+  "production_type": "Hybrid (Archive-First)",
+  "archive_sources": [
+    {
+      "segment": 1,
+      "platform": "Pexels",
+      "video_id": 38750427,
+      "url": "https://videos.pexels.com/video-files/38750427/16465032_1920_1080_50fps.mp4",
+      "duration": 14,
+      "quality_score": 0.7,
+      "use_archive": false
+    },
+    {
+      "segment": 2,
+      "platform": "Pexels",
+      "video_id": 6869005,
+      "url": "https://videos.pexels.com/video-files/6869005/6869005-hd_1920_1080_30fps.mp4",
+      "duration": 14,
+      "quality_score": 0.7,
+      "use_archive": false
+    },
+    {
+      "segment": 3,
+      "platform": "Pexels",
+      "video_id": 8992407,
+      "url": "https://videos.pexels.com/video-files/8992407/8992407-sd_640_360_30fps.mp4",
+      "duration": 10,
+      "quality_score": 0.5,
+      "use_archive": false
+    },
+    {
+      "segment": 4,
+      "platform": "Pexels",
+      "video_id": 37280502,
+      "url": "https://videos.pexels.com/video-files/37280502/15793273_3840_2160_25fps.mp4",
+      "duration": 26,
+      "quality_score": 0.95,
+      "use_archive": true
+    },
+    {
+      "segment": 5,
+      "platform": "Pexels",
+      "video_id": 8566760,
+      "url": "https://videos.pexels.com/video-files/8566760/8566760-uhd_2560_1440_30fps.mp4",
+      "duration": 11,
+      "quality_score": 0.55,
+      "use_archive": false
+    }
+  ],
+  "archive_count": 1,
+  "generate_count": 4,
+  "total_segments": 5,
+  "timestamps": {
+    "started": "2026-08-02T11:06:59.230347"
+  }
+}
