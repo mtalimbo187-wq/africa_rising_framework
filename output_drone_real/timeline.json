@@ -1,0 +1,36 @@
+{
+  "production_id": "drone_hybrid_real_20260802_112350",
+  "total_duration": 143,
+  "scenes": [
+    {
+      "scene": 1,
+      "type": "archive",
+      "duration": 43,
+      "start": 0
+    },
+    {
+      "scene": 2,
+      "type": "generated",
+      "duration": 25,
+      "start": 43
+    },
+    {
+      "scene": 3,
+      "type": "generated",
+      "duration": 25,
+      "start": 68
+    },
+    {
+      "scene": 4,
+      "type": "generated",
+      "duration": 25,
+      "start": 93
+    },
+    {
+      "scene": 5,
+      "type": "generated",
+      "duration": 25,
+      "start": 118
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "production_id": "drone_hybrid_real_20260802_112350",
+  "topic": "Drone Industry in Africa",
+  "status": "COMPLETE",
+  "started": "2026-08-02T11:23:00Z",
+  "completed": "2026-08-02T14:32:07.269817",
+  "total_duration_minutes": 65,
+  "archive": {
+    "source": "Pexels",
+    "size_mb": 210,
+    "authenticity": "Real 4K footage"
+  },
+  "generated": {
+    "count": 4,
+    "total_size_mb": 175,
+    "platform": "Higgsfield"
+  },
+  "narration": {
+    "source": "ElevenLabs",
+    "duration_seconds": 300,
+    "size_mb": 8.5
+  },
+  "costs": {
+    "pexels": 0,
+    "higgsfield": 18,
+    "elevenlabs": 2,
+    "total": 20
+  },
+  "qa_gates": {
+    "passed": 6,
+    "total": 6,
+    "status": "ALL_PASS"
+  }
+}

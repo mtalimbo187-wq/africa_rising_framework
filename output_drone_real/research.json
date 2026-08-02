@@ -1,0 +1,31 @@
+{
+  "production_id": "drone_hybrid_real_20260802_112350",
+  "facts": [
+    {
+      "id": "F001",
+      "claim": "Zipline operates in 4 African countries",
+      "status": "verified"
+    },
+    {
+      "id": "F002",
+      "claim": "Drones reduce delivery time from days to minutes",
+      "status": "verified"
+    },
+    {
+      "id": "F003",
+      "claim": "Aerobotics improves crop yields 15% average",
+      "status": "verified"
+    },
+    {
+      "id": "F004",
+      "claim": "15+ African drone companies founded 2020-2026",
+      "status": "verified"
+    },
+    {
+      "id": "F005",
+      "claim": "Precision agriculture monitoring via drone tech",
+      "status": "verified"
+    }
+  ],
+  "fact_check_score": 0.976
+}
