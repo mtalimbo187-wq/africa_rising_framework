@@ -1,0 +1,32 @@
+{
+  "production_id": "drone_5min_20260802_104812",
+  "duration": 300,
+  "qa_timestamp": "2026-08-02T10:56:35.982392",
+  "gates": {
+    "fact_verification": {
+      "score": 0.98,
+      "status": "PASS"
+    },
+    "visual_teaching": {
+      "score": 0.96,
+      "status": "PASS"
+    },
+    "asset_coverage": {
+      "score": 1.0,
+      "status": "PASS"
+    },
+    "qa_score": {
+      "score": 1.0,
+      "status": "PASS"
+    },
+    "story_flow": {
+      "score": 0.95,
+      "status": "PASS"
+    },
+    "audience_satisfaction": {
+      "score": 0.94,
+      "status": "PASS"
+    }
+  },
+  "all_gates_passed": true
+}

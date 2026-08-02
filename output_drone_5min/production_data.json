@@ -1,0 +1,14 @@
+{
+  "production_id": "drone_5min_20260802_104812",
+  "topic": "Drone Industry in Africa - 5 Minute Documentary",
+  "duration_seconds": 300,
+  "segments": 5,
+  "script_length_chars": 36,
+  "image_count": 10,
+  "video_approach": "Higgsfield 12x 5-second clips (12 x 5s = 60s video base, extended with archives)",
+  "narrator": "ElevenLabs Professional TTS (consistent voice)",
+  "images_tool": "xAI/Grok (to be generated)",
+  "timestamps": {
+    "started": "2026-08-02T10:48:42.960862"
+  }
+}
