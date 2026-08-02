@@ -1,0 +1,39 @@
+{
+  "production_id": "drone_industry_africa_20260802_104022",
+  "qa_timestamp": "2026-08-02T10:45:49.381656",
+  "gates": {
+    "fact_verification": {
+      "score": 0.975,
+      "threshold": 0.95,
+      "status": "PASS"
+    },
+    "visual_teaching": {
+      "score": 0.96,
+      "threshold": 0.9,
+      "status": "PASS"
+    },
+    "asset_coverage": {
+      "score": 1.0,
+      "threshold": 0.9,
+      "status": "PASS"
+    },
+    "qa_score": {
+      "score": 1.0,
+      "threshold": 0.9,
+      "status": "PASS"
+    },
+    "story_flow": {
+      "score": 0.95,
+      "threshold": 0.92,
+      "status": "PASS"
+    },
+    "audience_satisfaction": {
+      "score": 0.94,
+      "threshold": 0.92,
+      "status": "PASS"
+    }
+  },
+  "all_gates_passed": true,
+  "gates_passed_count": 6,
+  "gates_total": 6
+}
