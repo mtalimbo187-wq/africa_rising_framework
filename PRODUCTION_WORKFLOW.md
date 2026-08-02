@@ -340,6 +340,167 @@ output_5min/
 - Story flow: 0.92 minimum (continuity across segments)
 - Audience satisfaction: 0.92 minimum
 
+## Hybrid Documentary Production (NEW)
+
+### Archive-First Approach with Generated Fallback
+
+**Definition:** Maximize real footage authenticity by prioritizing free archive sources, with AI-generated video as fallback for gaps.
+
+**Production Types Supported:**
+- **Type 1: Pure Archive** - Only real footage, no generation (if sufficient)
+- **Type 2: Hybrid Archive + Generated** - Archives first, generate for gaps
+- **Type 3: Pure Generated** - All AI-generated (fallback when archives unavailable)
+
+### Archive Priority Stack (Free Sources)
+
+**Tier 1 - High Quality Real Footage (prioritized):**
+```
+1. Pexels Videos (API accessible)
+   - Search endpoint: /v1/videos/search
+   - Free, high-quality, commercial use OK
+   
+2. Pixabay Videos
+   - Large library, 4K available
+   - No attribution required
+   
+3. YouTube Creative Commons
+   - Reusable licensed content
+   - Diverse topics, attribution required
+   
+4. Archive.org (Internet Archive)
+   - Public domain footage
+   - Historical/educational content
+   - Use for specific historical contexts
+```
+
+**Tier 2 - Specialized Archives:**
+```
+5. NASA Footage (science/space)
+6. Smithsonian Open Access (cultural/historical)
+7. NOAA Archives (weather/ocean/environmental)
+8. Government agency archives (public domain)
+```
+
+### Hybrid Workflow
+
+**Step 1: Archive Search**
+```python
+For each scene:
+  - Generate search query from narration
+  - Search Tier 1 platforms (Pexels, Pixabay, YT CC)
+  - If found: SCORE quality (0-1) + duration match
+  - If score ≥ 0.85: USE archive footage
+  - If score < 0.85 OR not found: GENERATE with Higgsfield
+```
+
+**Step 2: Archive Quality Scoring**
+```
+Score = (relevance × 0.4) + (duration_match × 0.3) + (resolution × 0.3)
+
+Relevance: Does content match scene description? (0-1)
+Duration: Is length ≥ needed seconds? (0-1)
+Resolution: Is it ≥ 1080p? (0-1)
+
+Threshold: ≥0.85 to use archive
+Below 0.85: Generate synthetic video
+```
+
+**Step 3: Blending Archives + Generated**
+```
+Timeline approach:
+  - Segment 1: Archive footage (60%)
+  - Segment 2: Generated video (transition)
+  - Segment 3: Archive footage (transitions to match)
+  - Segment 4: Generated (fills gap)
+  - Continue alternating
+  
+Transition handling:
+  - Use dissolve/fade between archive → generated
+  - Match color grading (archive baseline)
+  - Apply consistent color filter to generated
+  - Ensure smooth audio continuity
+```
+
+**Step 4: Archive Metadata Tracking**
+```json
+{
+  "source_type": "archive",
+  "platform": "pexels_videos",
+  "archive_id": "video_12345",
+  "url": "https://pexels.com/...",
+  "licensing": "free_cc0",
+  "attribution_required": false,
+  "quality_score": 0.92,
+  "duration_seconds": 15,
+  "resolution": "1920x1080"
+}
+```
+
+### Hybrid Documentary Output Structure
+
+```
+output_hybrid/
+├── archive_sources.json        # All used archive footage metadata
+├── video_segments/
+│   ├── segment_01_archive.mp4  # Real footage (Pexels)
+│   ├── segment_02_generated.mp4 # Generated (Higgsfield)
+│   ├── segment_03_archive.mp4  # Real footage (YouTube CC)
+│   ├── segment_04_generated.mp4 # Generated (fallback)
+│   └── ...
+├── segment_blend_config.json   # Blend instructions (transitions, color)
+├── documentary.mp4             # Final blended video
+├── qa_report.json              # All 6 gates
+├── production_log.json         # Includes archive sources used
+└── archive_attribution.txt     # Attribution for all CC/licensed footage
+```
+
+### QA for Hybrid Documentaries
+
+**Additional Gates Beyond Standard 6:**
+- Archive authenticity: All archive footage relevant to narration? (0-1)
+- Blend quality: Seamless transition between archive + generated? (0-1)
+- Attribution compliance: All required attributions included? (yes/no)
+
+**Standard 6 Gates Still Apply:**
+- Fact verification: 0.95 minimum
+- Visual teaching: 0.90 minimum (across archives + generated)
+- Asset coverage: 0.90 minimum
+- Technical QA: 0.90 minimum (blend quality)
+- Story flow: 0.92 minimum (continuity despite sources)
+- Audience satisfaction: 0.92 minimum
+
+### Production Algorithm
+
+```
+For each documentary:
+  1. Split script into scenes
+  2. For each scene:
+     a. Search archives (Tier 1 → Tier 2)
+     b. Score archive matches
+     c. If score ≥ 0.85: add to timeline
+     d. If score < 0.85: queue for generation
+  3. Generate missing segments (Higgsfield)
+  4. Blend archive + generated with transitions
+  5. Apply color grading consistency
+  6. Add narration (ElevenLabs)
+  7. Run QA gates (including archive quality)
+  8. If all gates PASS: commit + release
+  9. If gates FAIL: re-generate missing segments
+```
+
+### Cost Optimization
+
+**Archive-First Benefits:**
+- Free footage (Pexels, Pixabay, YT CC)
+- Reduced Higgsfield generation costs
+- Improved authenticity (real footage)
+- Faster production (no waiting for video AI)
+
+**Typical Cost Reduction:**
+- Pure Generated: $5-8 per 5-min doc
+- Hybrid (70% archive): $1.50-3 per 5-min doc
+- ROI: Archive sourcing time vs. generation cost savings
+
 ## Production Checklist
 
 - [ ] Script generated and fact-checked
